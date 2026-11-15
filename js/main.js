@@ -168,4 +168,27 @@
       el.classList.add("is-visible");
     });
   }
+
+  /* Compra: un solo origen, el atributo data-buy-url en el botón .book-buy.
+     Si está vacío, se muestra «Próximamente disponible» y no se usa un enlace vacío. */
+  document.querySelectorAll(".book-buy").forEach(function (el) {
+    var url = (el.getAttribute("data-buy-url") || "").trim();
+    if (!url) {
+      el.removeAttribute("href");
+      el.setAttribute("role", "button");
+      el.setAttribute("aria-disabled", "true");
+      el.classList.add("is-soon");
+      el.textContent = "Próximamente disponible";
+      el.addEventListener("click", function (event) {
+        event.preventDefault();
+      });
+    } else {
+      el.setAttribute("href", url);
+      el.setAttribute("target", "_blank");
+      el.setAttribute("rel", "noopener");
+      el.removeAttribute("aria-disabled");
+      el.classList.remove("is-soon");
+    }
+  });
+
 })();
