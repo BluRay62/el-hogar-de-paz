@@ -335,7 +335,7 @@ a:hover { color: var(--gold-dim); }
   position: absolute;
   inset: 0;
   background:
-    url("../assets/images/hero-light.jpg") center 40% / cover no-repeat;
+    url("../assets/images/hero-light.jpg?v=3") center 40% / cover no-repeat;
   transform: scale(1.04);
   animation: hero-ken 22s ease-out forwards;
 }
@@ -562,7 +562,7 @@ a:hover { color: var(--gold-dim); }
   inset: 0;
   background:
     linear-gradient(180deg, rgba(31, 44, 36, 0.82), rgba(31, 44, 36, 0.88)),
-    url("../assets/images/forest.jpg") center / cover no-repeat;
+    url("../assets/images/forest.jpg?v=3") center / cover no-repeat;
   opacity: 0.55;
 }
 
@@ -645,7 +645,7 @@ a:hover { color: var(--gold-dim); }
   inset: 0;
   background:
     linear-gradient(180deg, rgba(20, 28, 23, 0.62), rgba(20, 28, 23, 0.7)),
-    url("../assets/images/shore.jpg") center 60% / cover no-repeat;
+    url("../assets/images/shore.jpg?v=3") center 60% / cover no-repeat;
 }
 
 .reflection-inner {
@@ -692,7 +692,18 @@ a:hover { color: var(--gold-dim); }
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 1.75rem;
-  align-items: start;
+  align-items: stretch;
+}
+
+.book-cover,
+.book-cover-photo {
+  align-self: start;
+}
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
 .book-cover-photo {
@@ -788,7 +799,8 @@ a:hover { color: var(--gold-dim); }
   flex-direction: column;
   align-items: stretch;
   gap: 0.65rem;
-  margin-top: 1.25rem;
+  margin-top: auto;
+  padding-top: 1.25rem;
   max-width: 20.5rem;
 }
 
